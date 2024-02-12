@@ -1,0 +1,140 @@
+<%- include('./header.ejs') %>
+<center style="margin-top: 200px; margin-bottom: 120px">
+  <div class="profilecard mt-5">
+    <div class="img-area">
+      <div class="inner-area">
+        <img src="<%= i.url %>" alt="" />
+      </div>
+    </div>
+    <div class="icon arrow">
+      <a href="/home"><i class="fas fa-arrow-left"></i></a>
+    </div>
+    <div class="icon dots">
+      <a href=""><i class="fas fa-ellipsis-v"></i></a>
+    </div>
+    <div class="name"><%= n %></div>
+    <div class="about">Full Stack Web Developer</div>
+    <div class="social-icons">
+      <a href="#" class="fb"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="insta"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="yt"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="click">
+      <button
+        class="bg-light"
+        data-bs-toggle="modal"
+        data-bs-target="#updateprofile"
+      >
+        Update Profile
+      </button>
+      <button
+        class="bg-light"
+        data-bs-toggle="modal"
+        data-bs-target="#changepassword"
+      >
+        Change Password
+      </button>
+    </div>
+  </div>
+</center>
+
+<!-- start updateprofile  Modal -->
+<div
+  class="modal fade"
+  id="updateprofile"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Update profile</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form
+          action="/updateProfile"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <div class="mb-3">
+            <label>Name</label>
+            <input
+              type="text"
+              value="<%= n %>"
+              name="name"
+              class="form-control"
+            />
+          </div>
+          <div class="mb-3">
+            <label>Email</label>
+            <input
+              type="text"
+              value="<%= e %>"
+              name="email"
+              class="form-control"
+            />
+          </div>
+          <div class="mb-3">
+            <label>Image</label>
+            <input type="file" name="image" class="form-control" />
+            <img src="<%= i.url %>" alt="" width="50" />
+          </div>
+
+          <button type="submit" class="btn btn-info">Update profile</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!--modal b.tech end-->
+
+<!-- Modal Change Password -->
+<div
+  class="modal fade"
+  id="changepassword"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Change Password</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form action="/changepassword" method="post">
+          <div class="mb-3">
+            <label for="">Old Password</label>
+            <input type="password" name="op" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label for="">New Password</label>
+            <input type="password" name="np" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label for="">Confirm Password</label>
+            <input type="password" name="cp" class="form-control" />
+          </div>
+          <button type="submit" class="btn btn-secondary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modal Change Password end -->
+
+<%- include('./footer.ejs') %>
