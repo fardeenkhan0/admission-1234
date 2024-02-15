@@ -1,8 +1,9 @@
 const UserModel = require("../models/User");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cloudinary = require("cloudinary").v2;
 const CourseModel = require("../models/course");
+const randoms = require("randomstring");
 
 cloudinary.config({
   cloud_name: "dmhos5nnv",
@@ -245,8 +246,46 @@ class FrontController {
       }
     } catch (error) {
       console.log(error);
-    }
-  };
+    }
+  };
 
+  static forgotpass = async (req, res) => {
+    try {
+      res.render("forgotpass", {
+        msg: req.flash("success"),
+        error: req.flash("error"),
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  static forgotverify = async (req, res) => {
+    try {
+      const email = req.body.email;
+      //console.log(req.body);
+      const userdata = await UserModel.findOne({ email: email });
+      //console.log(userdata);
+      if (userdata) {
+        if (userdata) {
+          const randoms = randoms.generate();
+          //console.log(randoms);
+          const updatedata = await UserModel.updateOne(
+            { email: email },
+            { $set: { token: randomstring } }
+          );
+          res.redirect("/forgotpass");
+        } else {
+          req.flash("error", "plz verify your mail");
+          res.render("/forgotpass");
+        }
+      } else {
+        req.flash("error", "user email is incorrect");
+        res.redirect("/forgotpass");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 module.exports = FrontController;

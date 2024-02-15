@@ -1,5 +1,5 @@
 const CourseModel = require("../models/course");
-const nodemailer = require("nodemailer");
+// const nodemailer = require("nodemailer");
 
 class AdminController {
   static dashboard = async (req, res) => {
@@ -21,7 +21,7 @@ class AdminController {
         comment: req.body.comment,
         status: req.body.status,
       });
-      this.sendEmail(name, email, status, comment);
+      // this.sendEmail(name, email, status, comment);
       res.redirect("/admin/dashboard");
     } catch (error) {
       console.log(error);
@@ -37,8 +37,8 @@ class AdminController {
       port: 587,
 
       auth: {
-        user: "yshrivastava1404@gmail.com",
-        pass: "zlbmhyflzfbwraxq",
+        user: "fardeenkhan1041@gnail",
+        pass: "uxxkzyaxtlpuovvd",
       },
     });
     let info = await transporter.sendMail({

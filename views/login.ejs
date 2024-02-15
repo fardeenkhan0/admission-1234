@@ -8,6 +8,33 @@
 
     <!-- CSS Link -->
     <link rel="stylesheet" href="./style.css" />
+    <style>
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      .forgot-password {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        text-decoration: none;
+        color: #007bff;
+      }
+
+      .forgot-password:hover {
+        color: #0056b3;
+      }
+    </style>
 
     <!-- Bootstrap Link -->
     <link
@@ -93,19 +120,23 @@
                   />
                 </div>
               </div>
+              <button type="submit" class="btn btn-primary mb-3 btn-lg">
+                Login
+              </button>
+              <a href="/forgotpass" class="forgot-password mb-3">Forgot Password?</a>
 
               <!-- Button (Login) -->
-              <center>
+              <!-- <center>
                 <button type="submit" class="btn btn-primary mb-5 btn-lg">
                   Login
                 </button>
-              </center>
+              </center> -->
 
               <!-- Register Now -->
               <center>
                 <p class="text-uppercase fw-light">
-                  Don't have an account? &nbsp;<a href="/register"
-                    >Register Now</a
+                  Don't have an account? &nbsp;<a href="/register">
+                    <span class="forgot-password">Register Now</span></a
                   >
                 </p>
               </center>

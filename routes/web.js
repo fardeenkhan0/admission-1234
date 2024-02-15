@@ -19,6 +19,8 @@ route.get("/logout", FrontController.logout);
 route.get("/profile", checkUserAuth, FrontController.profile);
 route.post("/updateProfile", checkUserAuth, FrontController.updateProfile);
 route.post("/changepassword", checkUserAuth, FrontController.changepassword);
+route.get("/forgotpass", FrontController.forgotpass);
+route.post("/forgotverify",FrontController.forgotverify);
 
 //courseController
 route.post("/courseInsert", checkUserAuth, CourseController.courseInsert);
@@ -30,6 +32,10 @@ route.post("/course_update/:id", checkUserAuth, CourseController.courseUpdate);
 
 //adminController
 route.get("/admin/dashboard", checkUserAuth, AdminController.dashboard);
-route.post("/admin/update_status/:id", checkUserAuth, AdminController.update_status);
+route.post(
+  "/admin/update_status/:id",
+  checkUserAuth,
+  AdminController.update_status
+);
 
 module.exports = route;
