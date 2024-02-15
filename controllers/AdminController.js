@@ -1,5 +1,5 @@
 const CourseModel = require("../models/course");
-// const nodemailer = require("nodemailer");
+const nodemailer = require("nodemailer");
 
 class AdminController {
   static dashboard = async (req, res) => {
@@ -16,12 +16,12 @@ class AdminController {
   static update_status = async (req, res) => {
     try {
       const { name, status, email, comment } = req.userdata;
-      //console.log(req.body);
+      // console.log(req.params.id);
       await CourseModel.findByIdAndUpdate(req.params.id, {
         comment: req.body.comment,
         status: req.body.status,
       });
-      // this.sendEmail(name, email, status, comment);
+      this.sendEmail(name, email, status, comment);
       res.redirect("/admin/dashboard");
     } catch (error) {
       console.log(error);
@@ -29,7 +29,7 @@ class AdminController {
   };
 
   static sendEmail = async (name, email, status, comment) => {
-    // console.log(name,email,status,comment)
+    console.log(name, email, status, comment);
     // connenct with the smtp server
 
     let transporter = await nodemailer.createTransport({
@@ -37,8 +37,8 @@ class AdminController {
       port: 587,
 
       auth: {
-        user: "fardeenkhan1041@gnail",
-        pass: "uxxkzyaxtlpuovvd",
+        user: "fardeenkhan1041@gmail.com",
+        pass: "mxbomaqyosormrnu",
       },
     });
     let info = await transporter.sendMail({
