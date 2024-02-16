@@ -15,7 +15,7 @@ class AdminController {
 
   static update_status = async (req, res) => {
     try {
-      const { name, status, email, comment } = req.userdata;
+      const { name, status, email, comment } = req.body;
       // console.log(req.params.id);
       await CourseModel.findByIdAndUpdate(req.params.id, {
         comment: req.body.comment,
