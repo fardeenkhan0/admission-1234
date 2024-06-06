@@ -28,6 +28,11 @@ const UserSchema = new mongoose.Schema(
         Required: true,
       },
     },
+
+    is_varified: {
+      type: Number,
+      default: "",
+    },
     token: {
       type: String,
       default: "",

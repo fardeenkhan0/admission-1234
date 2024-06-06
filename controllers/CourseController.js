@@ -1,6 +1,6 @@
 const CourseModel = require("../models/course");
 
-class CourseController {
+class CourseController {z
   static courseInsert = async (req, res) => {
     try {
       // console.log(req.body);
