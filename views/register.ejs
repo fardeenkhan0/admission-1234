@@ -8,6 +8,7 @@
 
     <!-- CSS Link -->
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="/css/home.css" />
 
     <!-- Bootstrap Link -->
     <link
@@ -18,135 +19,158 @@
     />
   </head>
 
-  <body>
+  <body
+    style="
+      background-image: url(https://img.freepik.com/premium-photo/luxurious-new-building-with-curb-appeal_1127-4448.jpg?size=626&ext=jpg&ga=GA1.1.2035999141.1708665957&semt=ais_user);
+      background-size: cover;
+    "
+  >
     <!-- Register Here -->
-    <section id="login" class="my-5">
-      <div class="container">
-        <div class="row">
-          <!-- Column-1 -->
-          <div class="col-lg-6">
-            <img
-              class="w-100"
-              src="./Images/CollegeStudentsImage-2.jpeg"
-              alt="College Students Image-2"
-              height="100%"
-            />
-          </div>
-          <!-- End Column-1 -->
 
-          <!-- Column-2 -->
-          <div class="col-lg-6 bglogin p-4">
-            <form
-              action="/insertreg"
-              method="post"
-              enctype="multipart/form-data"
-            >
-              <!-- logo -->
-              <center>
-                <img
-                  class="mb-4 rounded-circle"
-                  src="./Images/SignUpImage.jpeg"
-                  alt="Sign Up Image"
-                  width="20%"
-                  height="20%"
+    <section>
+      <div class="form-boxx">
+        <div class="form-value">
+          <form action="/insertreg" method="post" enctype="multipart/form-data">
+            <!-- logo -->
+            <center>
+              <img
+                class="mb-4 rounded-circle"
+                src="./Images/SignUpImage.jpeg"
+                alt="Sign Up Image"
+                width="20%"
+                height="20%"
+              />
+            </center>
+
+            <!-- Heading (Register Here) -->
+            <h1 class="mb-5 text-center">Register Here</h1>
+
+            <% if(msg.length>0){ %>
+
+            <div class="alert alert-danger"><%= msg %></div>
+
+            <% } %>
+
+            <!-- User Name -->
+            <!-- <div class="row mb-4">
+              <div
+                class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2"
+              >
+                Name
+              </div>
+              <div class="col-lg-10">
+                <input
+                  name="n"
+                  class="form-control text-capitalize"
+                  type="text"
+                  placeholder="Enter your name"
+                  required
                 />
-              </center>
-
-              <!-- Heading (Register Here) -->
-              <h1 class="mb-5 text-center">Register Here</h1>
-
-              <% if(msg.length>0){ %>
-
-              <div class="alert alert-danger"><%= msg %></div>
-
-              <% } %>
-
-              <!-- User Name -->
-              <div class="row mb-4">
-                <div
-                  class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2"
-                >
-                  Name
-                </div>
-                <div class="col-lg-10">
-                  <input
-                    name="n"
-                    class="form-control text-capitalize"
-                    type="text"
-                    placeholder="Enter your name"
-                    required
-                  />
-                </div>
               </div>
+            </div> -->
 
-              <!-- Email -->
-              <div class="row mb-3">
-                <div
-                  class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2"
-                >
-                  Email
-                </div>
-                <div class="col-lg-10">
-                  <input
-                    name="e"
-                    class="form-control"
-                    type="email"
-                    placeholder="name@example.com"
-                    required
-                  />
-                </div>
+            <div class="inputbox">
+              <ion-icon name="mail-outline"></ion-icon>
+              <input
+                name="n"
+                class="form-control text-capitalize"
+                type="text"
+                required
+              />
+              <label for=""> Name</label>
+            </div>
+
+            <!-- Email -->
+            <!-- <div class="row mb-3">
+              <div
+                class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2"
+              >
+                Email
               </div>
-
-              <!-- Password -->
-              <div class="row mb-4">
-                <div
-                  class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2"
-                >
-                  Password
-                </div>
-                <div class="col-lg-10">
-                  <input
-                    name="p"
-                    class="form-control"
-                    type="password"
-                    required
-                  />
-                </div>
+              <div class="col-lg-10">
+                <input
+                  name="e"
+                  class="form-control"
+                  type="email"
+                  placeholder="name@example.com"
+                  required
+                />
               </div>
+            </div> -->
 
-              <!-- Confirm Password -->
-              <div class="row mb-4">
-                <div
-                  class="col-lg-3 text-center bg-secondary rounded text-light fw-light my-auto p-2"
-                >
-                  Confirm Password
-                </div>
-                <div class="col-lg-9">
-                  <input
-                    name="cp"
-                    class="form-control"
-                    type="password"
-                    required
-                  />
-                </div>
+            <div class="inputbox">
+              <ion-icon name="mail-outline"></ion-icon>
+              <input name="e" class="form-control" type="email" required />
+              <label for="">Email</label>
+            </div>
+
+            <!-- Password -->
+            <!-- <div class="row mb-4">
+              <div
+                class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2"
+              >
+                Password
               </div>
+              <div class="col-lg-10">
+                <input
+                  name="p"
+                  class="form-control"
+                  type="password"
+                  required
+                />
+              </div>
+            </div> -->
 
-              <!-- Choose File -->
+            <div class="inputbox">
+              <ion-icon name="lock-closed-outline"></ion-icon>
+              <input name="p" class="form-control" type="password" required />
+              <label for="">Password</label>
+            </div>
+
+            <!-- Confirm Password -->
+            <!-- <div class="row mb-4">
+              <div
+                class="col-lg-3 text-center bg-secondary rounded text-light fw-light my-auto p-2"
+              >
+                Confirm Password
+              </div>
               <div class="col-lg-9">
-                <input type="file" name="image" />
+                <input
+                  name="cp"
+                  class="form-control"
+                  type="password"
+                  required
+                />
               </div>
-              <!-- Button (Login) -->
-              <center>
-                <button type="submit" class="btn btn-primary mb-5 btn-lg">
-                  Register
-                </button>
-              </center>
-            </form>
-          </div>
-          <!-- End Column-2 -->
+            </div> -->
+            <div class="inputbox">
+              <ion-icon name="lock-closed-outline"></ion-icon>
+              <input name="cp" class="form-control" type="password" required />
+              <label for="">Confirm Password</label>
+            </div>
+
+            <!-- Choose File -->
+            <!-- <div class="col-lg-9">
+              <input type="file" name="image" />
+            </div> -->
+
+            <div class="inputbox">
+              <ion-icon name="lock-closed-outline"></ion-icon>
+              <input type="file" name="image" />
+            </div>
+            <!-- Button (Login) -->
+            <!-- <center>
+              <button type="submit" class="btn btn-primary mb-5 btn-lg">
+                Register
+              </button>
+            </center> -->
+
+            <button type="submit">Register</button>
+          </form>
         </div>
       </div>
     </section>
+
     <!-- End Register Here -->
 
     <!-- Java Script Link -->

@@ -8,33 +8,7 @@
 
     <!-- CSS Link -->
     <link rel="stylesheet" href="./style.css" />
-    <style>
-      button {
-        width: 100%;
-        padding: 10px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-
-      button:hover {
-        background-color: #0056b3;
-      }
-
-      .forgot-password {
-        display: block;
-        text-align: center;
-        margin-top: 10px;
-        text-decoration: none;
-        color: #007bff;
-      }
-
-      .forgot-password:hover {
-        color: #0056b3;
-      }
-    </style>
+    <link rel="stylesheet" href="/css/home.css" />
 
     <!-- Bootstrap Link -->
     <link
@@ -45,107 +19,125 @@
     />
   </head>
 
-  <body>
+  <body
+    style="
+      background-image: url(https://img.freepik.com/premium-photo/luxurious-new-building-with-curb-appeal_1127-4448.jpg?size=626&ext=jpg&ga=GA1.1.2035999141.1708665957&semt=ais_user);
+      background-size: cover;
+    "
+  >
     <!-- Login -->
-    <section id="login" class="my-5">
-      <div class="container">
-        <div class="row">
-          <!-- Column-1 -->
-          <div class="col-lg-6">
-            <img
-              class="w-100"
-              src="./Images/CollegeStudentsImage-1.jpeg"
-              alt="College Students Image-1"
-              height="100%"
-            />
-          </div>
-          <!-- End Column-1 -->
 
-          <!-- Column-2 -->
-          <div class="col-lg-6 bglogin p-4">
-            <form action="vlogin" method="post">
-              <!-- logo -->
-              <center>
-                <img
-                  class="mb-4 rounded-circle"
-                  src="./Images/logo.jpeg"
-                  alt="logo"
-                  width="20%"
-                  height="20%"
+    <section>
+      <div class="form-box">
+        <div class="form-value">
+          <form action="vlogin" method="post">
+            <!-- logo -->
+            <center>
+              <img
+                class="mb-4 rounded-circle"
+                src="./Images/logo.jpeg"
+                alt="logo"
+                width="20%"
+                height="20%"
+              />
+            </center>
+
+            <!-- Heading (Login) -->
+            <h1 class="mb-5 text-center">Login</h1>
+            <% if(msg.length>0){ %>
+
+            <div class="alert alert-success"><%= msg %></div>
+
+            <% } %> <% if(error.length > 0){ %>
+
+            <div class="alert alert-danger"><%= error %></div>
+            <% } %>
+
+            <!-- Email -->
+            <!-- <div class="row mb-3">
+              <div
+                class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2"
+              >
+                Email
+              </div>
+              <div class="col-lg-10">
+                <input
+                  class="form-control"
+                  type="email"
+                  name="e"
+                  placeholder="name@example.com"
+                  required
                 />
-              </center>
-
-              <!-- Heading (Login) -->
-              <h1 class="mb-5 text-center">Login</h1>
-              <% if(msg.length>0){ %>
-
-              <div class="alert alert-success"><%= msg %></div>
-
-              <% } %> <% if(error.length > 0){ %>
-
-              <div class="alert alert-danger"><%= error %></div>
-              <% } %>
-
-              <!-- Email -->
-              <div class="row mb-3">
-                <div
-                  class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2"
-                >
-                  Email
-                </div>
-                <div class="col-lg-10">
-                  <input
-                    class="form-control"
-                    type="email"
-                    name="e"
-                    placeholder="name@example.com"
-                    required
-                  />
-                </div>
               </div>
+            </div> -->
 
-              <!-- Password -->
-              <div class="row mb-5">
-                <div
-                  class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2"
-                >
-                  Password
-                </div>
-                <div class="col-lg-10">
-                  <input
-                    class="form-control"
-                    type="password"
-                    required
-                    name="p"
-                  />
-                </div>
+            <div class="inputbox">
+              <ion-icon name="mail-outline"></ion-icon>
+              <input type="email" class="form-control" name="e" />
+              <label for="">Email</label>
+            </div>
+
+            <!-- Password -->
+            <!-- <div class="row mb-5">
+              <div
+                class="col-lg-2 text-center bg-secondary rounded text-light fw-light my-auto p-2"
+              >
+                Password
               </div>
-              <button type="submit" class="btn btn-primary mb-3 btn-lg">
+              <div class="col-lg-10">
+                <input
+                  class="form-control"
+                  type="password"
+                  required
+                  name="p"
+                />
+              </div>
+            </div> -->
+            <div class="inputbox">
+              <ion-icon name="lock-closed-outline"></ion-icon>
+              <input class="form-control" type="password" required name="p" />
+              <label for="">Password</label>
+            </div>
+
+            <div class="forget">
+              <label for=""
+                ><input type="checkbox" />Remember Me
+                <a class="forgot-password mb-3" href="/forgotpass"
+                  >Forget Password
+                </a>
+              </label>
+            </div>
+            <button type="submit">Log in</button>
+
+            <!-- <button type="submit" class="btn btn-primary mb-3 btn-lg">
+              Login
+            </button> -->
+            <!-- <a href="/forgotpass" class="forgot-password mb-3">Forgot Password?</a> -->
+
+            <!-- Button (Login) -->
+            <!-- <center>
+              <button type="submit" class="btn btn-primary mb-5 btn-lg">
                 Login
               </button>
-              <a href="/forgotpass" class="forgot-password mb-3">Forgot Password?</a>
+            </center> -->
 
-              <!-- Button (Login) -->
-              <!-- <center>
-                <button type="submit" class="btn btn-primary mb-5 btn-lg">
-                  Login
-                </button>
-              </center> -->
+            <!-- Register Now -->
+            <div class="register">
+              <p>Don't have a account <a href="/register">/register</a></p>
+            </div>
 
-              <!-- Register Now -->
-              <center>
-                <p class="text-uppercase fw-light">
-                  Don't have an account? &nbsp;<a href="/register">
-                    <span class="forgot-password">Register Now</span></a
-                  >
-                </p>
-              </center>
-            </form>
-          </div>
-          <!-- End Column-2 -->
+            <!-- <center>
+              <p class="text-uppercase fw-light">
+                Don't have an account? &nbsp;<a href="/register">
+                  <span class="forgot-password">Register Now</span></a
+                >
+              </p>
+            </center> -->
+          </form>
         </div>
       </div>
     </section>
+
     <!-- End Login -->
 
     <!-- Java Script Link -->
